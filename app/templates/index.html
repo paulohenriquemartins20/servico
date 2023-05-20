@@ -1,0 +1,156 @@
+{% load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>EMPREGO</title>
+
+    <link rel='stylesheet' href='{% static 'css.css' %}'/>
+  </head>
+
+  <body>
+   
+  <div  class='logo'> 
+  
+    <div class="ii" onclick="alert('sem conecao por enquanto!')"> <img src={% static "fotos/ico.png" %} width=100%  height=100%/></div> 
+    
+
+  </div> 
+
+  <div class='logotipo'> 
+
+   <img  src = {% static 'fotos/foto.jpg' %} width=100% height=100%/>
+
+  </div>
+
+
+ <div class='a'>
+
+  <form  action='{% url 'te' %}'  method='post' class='f'> 
+
+    {% csrf_token %}
+  
+    <input  name='nomes'  type='text' placeholder='Seu primeiro Nome ?' required/>
+    <div>
+      ********************
+    </div>
+    <input  name='sobrenome'  type='text' placeholder='Sobre Nome ?'  required />
+    <div>
+      ********************
+    </div>
+    <input  name='idade'  type='number' placeholder='Sua idade ?' maxlength="2"  required/>
+    <div>
+         
+
+
+       ********************
+      
+    </div>
+       
+    <input name="celular" type="text"  placeholder="ex: (34)99810-8823"  pattern="^\(\d{2}\)\d[0-9]{4,5}-\d{4}$" required>
+    <div> 
+
+
+      ********************
+    </div>
+
+    <input name="funcao" type='text'  placeholder=" Funcao ? oque saber fazer?"/>
+    <div> 
+
+
+      ********************
+    </div>
+    <input name="escolaridade" type="text" placeholder='Escolaridade ?'/>
+    <div> 
+
+
+      ********************
+    </div>
+    <input name="referencias" type="text" placeholder='Referencias ?'/>
+    <div> 
+
+
+      ********************
+    </div>
+    <input name="estadocivil" type="text" placeholder='Estado civil ?'/>
+    <div> 
+
+
+      ********************
+    </div>
+    <input  type='submit' value="adicionar"/>
+
+
+
+
+
+  </form>
+
+ </div>
+
+ <div class='b'>
+
+ 
+  
+  <table  class="t"> 
+    
+    <tr>
+      <th><h2>ID-USU</h2></th>
+      <th><h2>Nome</h2></th>
+      <th><h2>sobre</h2></th>
+      <th><h2>idade</h2></th>
+      <th><h2>cel</h2></th>
+      <th><h2>Funcao</h2></th>
+      <th><h2>Escolaridade</h2></th>
+      <th><h2>Referencia</h2></th>
+      <th><h2>EstadoCivil</h2></th>
+      <th> {{l}}</th>
+    </tr>
+    
+    
+  {% for cadast in usu %}
+    <tr>
+     
+       <td>00</td>
+       <td>{{cadast.nomes}}</td>
+       <td>{{cadast.sobrenome}}</td>
+       <td>{{cadast.idade}}</td>
+       <td>{{cadast.celular}}</td>
+       <td>{{cadast.funcao}}</td>
+       <td>{{cadast.escolaridade}}</td>
+       <td>{{cadast.referencias}}</td>
+       <td>{{cadast.estadocivil}}</td>
+        
+    </tr>
+  {% endfor %}
+  
+  </table>
+   
+
+ </div>
+
+
+
+
+
+
+
+
+
+  <script> 
+
+     alert('seja todos bem vindos: nosso site se encontra em Desenvolvimento !  mais pode se cadastrar! site simples,porem util')
+
+     setTimeout(function(){
+       alert("por favor so se cadastre-se, se relmente voce estinve precisando!!!!!")
+
+     },9000)
+  </script>
+  </body>
+
+
+
+
+
+</html>
